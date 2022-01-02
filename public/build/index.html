@@ -1,0 +1,19 @@
+<script src="http://127.0.0.1:8081/compile.js"></script>
+<script src="http://127.0.0.1:8081/exec.js"></script>
+
+<script>
+  const src = `
+export fn main:
+  console.log "Hello world!"
+`;
+  (async () => {
+    const {code} = await clioCompiler.compile(src);
+    // console.log(code);
+    const mycode = code.replace('//# sourceMappingURL=main.clio.js.map', '');
+    // console.log('data:text/plain;base64,' + btoa('http://127.0.0.1:8081/worker.js'));
+    await clio.exec(mycode, 'http://127.0.0.1:8081/worker.js');
+
+  })();
+
+
+</script>
