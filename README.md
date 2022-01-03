@@ -23,3 +23,7 @@ export fn main:
   })();
 </script>
 ```
+
+## License
+
+Apache License 2.0, same as Clio.
